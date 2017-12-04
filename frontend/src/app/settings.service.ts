@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class SettingsService {
 
-  private settingsUrl = 'http://comp467.app/api/settings';  // Todo: fix this, URL to web api
+  private settingsUrl = 'http://ec2-34-216-138-204.us-west-2.compute.amazonaws.com/api/settings';  // Todo: fix this, URL to web api
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
