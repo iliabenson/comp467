@@ -1,0 +1,14 @@
+<canvas-whiteboard #canvasWhiteboard
+ [options]="canvasOptions"
+ (onBatchUpdate)="onCanvasDraw($event)"
+ (onClear)="onCanvasClear()"
+ (onUndo)="onCanvasUndo($event)"
+ (onRedo)="onCanvasRedo($event)">
+</canvas-whiteboard>
+
+<div *ngIf="canvasOptions">
+  <label>Line Width:
+    <input [(ngModel)]="canvasOptions.lineWidth" placeholder="number">
+  </label>
+</div>
+<button (click)="save()">save</button>
