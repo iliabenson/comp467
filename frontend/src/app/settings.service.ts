@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class SettingsService {
 
-  private settingsUrl = 'http://comp586.app/api/settings';  // Todo: fix this, URL to web api
+  private settingsUrl = 'http://comp467.app/api/settings';  // Todo: fix this, URL to web api
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -44,18 +44,6 @@ export class SettingsService {
       catchError(this.handleError<any>('updateSettings'))
     );
   }
-
-  // /* GET settings whose name contains search term */
-  // searchHeroes(term: string): Observable<CanvasWhiteboardOptions[]> {
-  //   if (!term.trim()) {
-  //     // if not search term, return empty setting array.
-  //     return of([]);
-  //   }
-  //   return this.http.get<CanvasWhiteboardOptions[]>(this.settingsUrl).pipe(
-  //     tap(_ => this.log(`found settings matching "${term}", ${this.settingsUrl}`)),
-  //     catchError(this.handleError<CanvasWhiteboardOptions[]>('searchHeroes', []))
-  //   );
-  // }
 
   /** Log a SettingsService message with the MessageService */
   private log(message: string) {

@@ -10,24 +10,7 @@ class SettingController extends Controller
     public function getFirst()
     {
         $settings = Setting::findOrFail(1);
-		return $settings->only([
-	        'aspectRatio',
-			'drawButtonEnabled',
-			'drawButtonClass',
-			'drawButtonText',
-			'clearButtonEnabled',
-			'clearButtonClass',
-			'clearButtonText',
-			'undoButtonText',
-			'undoButtonEnabled',
-			'redoButtonText',
-			'redoButtonEnabled',
-			'colorPickerEnabled',
-			'saveDataButtonEnabled',
-			'saveDataButtonText',
-			'lineWidth',
-			'strokeColor',
-			'shouldDownloadDrawing']);
+		return $settings->only(['lineWidth']);
     }
 
     public function update(Request $request)
@@ -35,6 +18,6 @@ class SettingController extends Controller
         $settings = Setting::findOrFail(1);
         $settings->lineWidth = $request->input('lineWidth');
         $settings->save();
-        return [];
+        return $settings->only(['lineWidth']);
     }
 }

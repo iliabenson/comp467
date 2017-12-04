@@ -8,7 +8,7 @@
 
 <div *ngIf="canvasOptions">
   <label>Line Width:
-    <input [(ngModel)]="canvasOptions.lineWidth" placeholder="number">
+    <input [(ngModel)]="canvasOptions.lineWidth" placeholder="number" (keyup)="save()">
   </label>
 </div>
-<button (click)="save()">save</button>
+
