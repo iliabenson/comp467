@@ -1,53 +1,56 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Draw Something Authoring Tool
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Project Branches
+***
 
-## About Laravel
+* The Master branch is the completed software, this is what you should download to deploy
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+* The Deployment branch is identical to the master branch, however, the AWS VM i was using was not capable of compiling angular code nor did it have enough ram to download all the angular and laravel dependencies, thats what you get for free tier. In any case the deployment branch just has everything compiled and all the dependencies loaded, you can just copy paste this branch directory 1 level above public as the public directory in it is what should be the document root on your server.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Project Installation
+***
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+You need to have composer and npm installed on the host system you wish to install the client on.
+Minimum:
+`composer version (1.0.0-beta2) 2016-03-27`
+`npm version 3.5.2`
 
-## Learning Laravel
+To install laravel cd into the `comp467` directory and run `composer dumpautoload` this will download all the dependencies
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+To install angular cd into the `comp467/frontend` folder and run `npm install`
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+## High Level Technologies
+***
 
-## Laravel Sponsors
+#### Laravel 5.5 (Backend REST API)
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+Laravel was used for the backend, it supports the following technologies:
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
+* Eloquent ORM
+* Dependency Injection
+* MVC
+* Unit Test
 
-## Contributing
+#### Angular 5 (Frontend SPA)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Angular was used for the frontend, it supports the following technologies:
 
-## Security Vulnerabilities
+* Dependency Injection
+* MVC
+* Unit Test
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+The `ng2-canvas-whiteboard` package was used to help with the angular authoring tool.
 
-## License
+## Project Features
+***
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The application allows the user to:
+* Draw on the whiteboard
+* Pick a color
+* Undo an action
+* Redo an action
+* Clear all content
+* Download the content of the whiteboard as a png file
+* Change the thickness of the drawing line, this is done by making a REST API to the backend
+* Log all API calls
+* Clear logged API calls
